@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Structure Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="icon" href="favicon_code.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-main">
+            <h1>Code Structure Viewer</h1>
+            <div class="header-meta">
+                <span>© <span id="current-year"></span> Marcel Mayr (marcelamayr)</span>
+                <a href="https://github.com/marcelamayr/Code-Structure-Viewer" target="_blank" rel="noopener noreferrer">
+                    GitHub Project
+                </a>
+            </div>
+        </div>
+        <div class="controls">
+            <input type="file" id="folderInput" webkitdirectory directory multiple style="display: none;">
+            <label for="folderInput" class="button-like">Load Code Folder</label>
+            <input type="file" id="singleFileInput" accept="*" style="display: none;">
+            <label for="singleFileInput" class="button-like">Load Single File</label>
+        </div>
+    </header>
+
+    <div id="container">
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <h2>Code Structure</h2>
+                <input type="text" id="searchTree" placeholder="Search structure (files/folders)...">
+            </div>
+            <div id="file-tree">
+                <p class="placeholder">Load a folder to see files.</p>
+            </div>
+        </aside>
+
+        <main id="main-content">
+            <div id="code-view-options">
+                <label>View Mode:
+                    <select id="viewModeSelect">
+                        <option value="full" selected>Full Code</option>
+                        <option value="readable">Readable (No Comments)</option>
+                        <option value="signatures">Signatures Only</option>
+                        <option value="raw_min">Raw Minified (Aggressive)</option>
+                    </select>
+                </label>
+                <label id="languageOverrideLabel" style="display:none;">Force Language:
+                    <select id="languageOverrideSelect">
+                        <option value="auto" selected>Auto-detect</option>
+                        <option value="csharp">C#</option>
+                        <option value="vbnet">VB.NET</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="xml">XML/HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="plaintext">Plain Text</option>
+                    </select>
+                </label>
+                <div class="filter-controls">
+                    <input type="text" id="searchCodeContent" placeholder="Search in code...">
+                </div>
+            </div>
+            <div id="element-filters-container">
+                <div class="filter-header">
+                    <span>Filter Elements:</span>
+                    <div>
+                        <button id="selectAllFiltersBtn" class="filter-action-btn">Select All</button>
+                        <button id="deselectAllFiltersBtn" class="filter-action-btn">Deselect All</button>
+                    </div>
+                </div>
+                <div id="element-filters">
+                    <label><input type="checkbox" class="element-filter" value="comments" checked> Comments</label> <!-- New comments filter -->
+                    <label><input type="checkbox" class="element-filter" value="namespace" checked> Namespaces</label>
+                    <label><input type="checkbox" class="element-filter" value="class" checked> Classes</label>
+                    <label><input type="checkbox" class="element-filter" value="interface" checked> Interfaces</label>
+                    <label><input type="checkbox" class="element-filter" value="struct" checked> Structs</label>
+                    <label><input type="checkbox" class="element-filter" value="enum" checked> Enums</label>
+                    <label><input type="checkbox" class="element-filter" value="method" checked> Methods/Subs/Functions</label>
+                    <label><input type="checkbox" class="element-filter" value="property" checked> Properties</label>
+                    <label><input type="checkbox" class="element-filter" value="field" checked> Fields/Variables</label>
+                    <label><input type="checkbox" class="element-filter" value="event" checked> Events</label>
+                    <label><input type="checkbox" class="element-filter" value="delegate" checked> Delegates</label>
+                </div>
+            </div>
+
+
+            <div id="code-display-area">
+                <div class="code-header">
+                    <span id="fileNameDisplay">No file selected.</span>
+                    <div class="token-counts">
+                        Original: <span id="originalTokenCount">-</span> | Current View: <span id="processedTokenCount">-</span>
+                    </div>
+                </div>
+                <!-- Line numbers will be added here by JS -->
+                <div id="code-content-wrapper">
+                    <div id="line-numbers"></div>
+                    <pre><code id="code-content" class="language-csharp">Select an item from the tree.</code></pre>
+                </div>
+                <button id="copyCodeBtnMain" class="copy-code-btn-main">Copy Displayed Code</button>
+            </div>
+        </main>
+    </div>
+
+    <div id="copy-confirmation" class="copy-confirmation-popup">Copied!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gpt-tokenizer@2.1.1/build/web/gpt-tokenizer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/vbnet.min.js"></script>
+    <script src="script_code_viewer.js"></script>
+</body>
+</html>
