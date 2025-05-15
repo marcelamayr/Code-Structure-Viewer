@@ -9,7 +9,7 @@ This tool is particularly useful for:
 *   **Code Analysis & Understanding:** Filter out noise (like comments or specific element types) to focus on the core logic.
 *   **Token Count Estimation:** Get an approximate token count for code snippets using a client-side tokenizer, helpful when working with token-limited LLM APIs.
 
-Developed by Marcel Mayr ([marcelamay on GitHub](https://github.com/marcelamay), [@marcelamayr on social media](https://marcelamayr.com))
+Developed by Marcel Mayr ([marcelamayr on GitHub](https://github.com/marcelamayr), [@marcelamayr on social media](https://marcelamayr.com))
 
 <!--
 Take a screenshot of the application and replace 'placeholder_screenshot.png'.
@@ -119,4 +119,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ---
 
-*Project by Marcel Mayr ([@marcelamay on GitHub](https://github.com/marcelamay) | [marcelamayr.com](https://marcelamayr.com))*
+*Project by Marcel Mayr ([@ marcelamayr on GitHub](https://github.com/marcelamayr) | [marcelamayr.com](https://marcelamayr.com))*
