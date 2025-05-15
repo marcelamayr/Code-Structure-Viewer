@@ -16,7 +16,7 @@ Take a screenshot of the application and replace 'placeholder_screenshot.png'.
 You can drag and drop the image into the GitHub editor when editing this README.
 Example: ![Screenshot of Code Structure Viewer](code-structure-viewer-screenshot.png)
 -->
-![Screenshot of Code Structure Viewer](placeholder_screenshot.png)
+![Screenshot of Code Structure Viewer](screenshot.png)
 
 ## Features
 
